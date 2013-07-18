@@ -4,6 +4,6 @@
   "version":"0.0.1",
   "main": "./lib/metalogger.js",
   "dependencies":{
-    "npmlog":"*"
+    "log":"*"
   }
 }
