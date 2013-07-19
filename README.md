@@ -1,6 +1,3 @@
-metalogger
-==========
-
 ## What is MetaLogger?
 
 If you are familiar with [Apache Commons Logging](http://commons.apache.org/proper/commons-logging/) then you know 
