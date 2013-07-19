@@ -4,7 +4,7 @@ If you are familiar with [Apache Commons Logging](http://commons.apache.org/prop
 why Node.js needs Metalogger, if not: keep reading.
 
 Node.js is famous for its modular architecture. However, every module developer can have his or her own  preference 
-to a which logging library they prefer to use. This can lead to either 
+to which logging library they prefer to use. This can lead to one of the following non-ideal scenarios:
 
 1. No logging in the released code (typically what you see in most modules, currently)
 2. Logging using the most simplistic tools that don't support varying logging levels
