@@ -1,9 +1,25 @@
 {
-  "name":"metalogger",
-  "description":"A simple log interface extending npmlog",
-  "version":"0.0.3",
-  "main": "./lib/metalogger.js",
-  "dependencies":{
-    "log":"*"
+  "name"        : "Metalogger"
+, "description" : "A thin wrapper for common log modules to provide unified interface"
+, "version"     : "0.1.0"
+, "repository": {
+    "type": "git"
+  , "url": "git://github.com/publicmediaplatform/metalogger.git"  
   }
+, "main"        : "./lib/metalogger.js"
+, "dependencies":{
+    "log"    : "*"
+  , "npmlog" : "*"  
+  }
+, "devDependencies": {
+    "assert" : "*"
+  , "should" : "*"  
+  , "mocha"  : "*"
+  }
+, "directories": {
+    "test" : "test"
+  }
+, "scripts": {
+    "test" : "mocha"
+  }  
 }
