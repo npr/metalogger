@@ -10,12 +10,13 @@ to which logging library they prefer to use. This can lead to one of the followi
 2. Logging using the most simplistic tools that don't support varying logging levels
 3. Chaos, when each module does extensive logging, but using completely differing libraries.
 
-Other platforms have solved this problem in elegant ways (yes, Node can learn **some** things from Java) so this is
-an example of Node learning how to do unified logging from Apache/Java.
+Other platforms have solved this problem in elegant ways, so this is an attempt of Node learning how to do 
+proper unified logging from Apache/Java.
 
-The metalogger module is a very lightweight bridge for different logging implementations. A library that 
-uses the metalogger library can be used with any logging implementation at runtime. Metalogger comes with support
-for a number of popular logger modules and can also default to native logging.
+The metalogger module is a very lightweight bridge/wrapper for different popular logging implementations 
+([npmlog](https://github.com/isaacs/npmlog), 
+[log](https://github.com/visionmedia/log.js), [util](http://nodejs.org/api/util.html)). A node.js module that 
+uses the metalogger library can choose which logging implementation to use at runtime. 
 
 Usage of Metalogger is not limited to just standalone modules. Full-blown Node applications may also choose to 
 Metalogger to ensure that a change to a different logging implementation is not a hassle, if and when needed.
