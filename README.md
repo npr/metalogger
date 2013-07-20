@@ -83,6 +83,6 @@ In the complex syntax, you can use caption (first argument), format (second argu
 to construct complex expressions:
 
 ```javascript
-log.("Caption: ", "Template is string: %s, number: %d, number2: %s", somestring, somenumber, othernumber);
+log.("Caption: ", "Formatted sequence is string: %s, number: %d, number2: %d", somestring, somenumber, othernumber);
 ```
 the format syntax follows the semantics of [util.format](http://nodejs.org/api/util.html#util_util_inspect_object_options)
