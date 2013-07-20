@@ -57,3 +57,15 @@ log.info(obj);
 
 // Complex syntax:
 log.error('caption', 'num: %d, title: %s', 125, "npr");
+
+//------ UTIL Limitation
+
+log = require('./lib/metalogger')('util', 'alert');
+
+log.info('something info');
+log.error('something error');
+log.debug('something debug');
+log.notice('something notice');
+log.warning('something warning');
+log.alert('something alert');
+log.critical('something critical');
