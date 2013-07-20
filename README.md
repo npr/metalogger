@@ -78,7 +78,7 @@ after which you can use the simple or advanced syntaxes, regardless of the under
 
 In the simple syntax, you can just pass some message (or a javascript object, which will be properly expanded/serialized):
 ```javascript
-log.(message);
+log.debug(message);
 ```
 
 #### Advanced Syntax
@@ -87,6 +87,6 @@ In the complex syntax, you can use caption (first argument), format (second argu
 to construct complex expressions:
 
 ```javascript
-log.("Caption: ", "Formatted sequence is string: %s, number: %d, number2: %d", somestring, somenumber, othernumber);
+log.debug("Caption: ", "Formatted sequence is string: %s, number: %d, number2: %d", somestring, somenumber, othernumber);
 ```
 the format syntax follows the semantics of [util.format](http://nodejs.org/api/util.html#util_util_inspect_object_options)
