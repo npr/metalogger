@@ -1,7 +1,7 @@
 {
-  "name"        : "Metalogger"
+  "name"        : "metalogger"
 , "description" : "A thin wrapper for common log modules to provide unified interface"
-, "version"     : "0.1.0"
+, "version"     : "0.1.1"
 , "license": {
     "type": "MIT"
   ,  "url": "https://github.com/publicmediaplatform/metalogger/blob/master/LICENSE"
