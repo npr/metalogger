@@ -1,7 +1,7 @@
 {
   "name"        : "metalogger"
 , "description" : "A thin wrapper for common log modules to provide unified interface"
-, "version"     : "0.1.1"
+, "version"     : "0.1.2"
 , "license": {
     "type": "MIT"
   ,  "url": "https://github.com/publicmediaplatform/metalogger/blob/master/LICENSE"
@@ -10,6 +10,11 @@
     "name"  : "Irakli Nadareishvili"
   , "email" : "irakli@gmail.com"
   }
+, "contributors" : [
+    { "name"  : "John Nelson"
+    , "email" : "john@catchjohn.com"    
+    }
+  ]  
 , "repository": {
     "type": "git"
   , "url": "git://github.com/publicmediaplatform/metalogger.git"  
