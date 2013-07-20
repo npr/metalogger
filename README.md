@@ -48,12 +48,12 @@ Where the the arguments of initialization are:
     
     As of this writing the list of levels mirrors that of syslog (and log.js) and is as follows:
     
-      - 0 __EMERGENCY__  system is unusable
-      - 1 __ALERT__ action must be taken immediately
-      - 2 __CRITICAL__ the system is in critical condition
-      - 3 __ERROR__ error condition
-      - 4 __WARNING__ warning condition
-      - 5 __NOTICE__ a normal but significant condition
-      - 6 __INFO__ a purely informational message
-      - 7 __DEBUG__ messages to debug an application
+- 0 __EMERGENCY__  system is unusable
+- 1 __ALERT__ action must be taken immediately
+- 2 __CRITICAL__ the system is in critical condition
+- 3 __ERROR__ error condition
+- 4 __WARNING__ warning condition
+- 5 __NOTICE__ a normal but significant condition
+- 6 __INFO__ a purely informational message
+- 7 __DEBUG__ messages to debug an application
 
