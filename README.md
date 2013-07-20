@@ -19,3 +19,41 @@ for a number of popular logger modules and can also default to native logging.
 
 Usage of Metalogger is not limited to just standalone modules. Full-blown Node applications may also choose to 
 Metalogger to ensure that a change to a different logging implementation is not a hassle, if and when needed.
+
+## Installation and Initialization
+
+```bash
+npm install metalogger
+```bash
+
+```javascript
+var log = require('metalogger')('util', 'info');
+```
+
+Where the the arguments of initialization are:
+
+1. Short name of the implemented logging plugin. Current implementations include:  ('util', 'npmlog', 'log'). 
+
+    Full current list can be checked, at runtime, by issuing: 
+    
+    ```javascript
+      log.loggers();
+    ```
+    
+1. Name of the logging level. Current list allowed can be retrieved by issuing:
+
+    ```
+      log.levels();
+    ```    
+    
+    As of this writing the list of levels mirrors that of syslog (and log.js) and is as follows:
+    
+    - 0 __EMERGENCY__  system is unusable
+    - 1 __ALERT__ action must be taken immediately
+    - 2 __CRITICAL__ the system is in critical condition
+    - 3 __ERROR__ error condition
+    - 4 __WARNING__ warning condition
+    - 5 __NOTICE__ a normal but significant condition
+    - 6 __INFO__ a purely informational message
+    - 7 __DEBUG__ messages to debug an application
+
