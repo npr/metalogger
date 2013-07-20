@@ -10,8 +10,8 @@ to which logging library they prefer to use. This can lead to one of the followi
 2. Logging using the most simplistic tools that don't support varying logging levels
 3. Chaos, when each module does extensive logging, but using completely differing libraries.
 
-Other platforms have solved this problem in elegant ways, so this is an attempt of Node learning how to do 
-proper unified logging from Apache/Java.
+Other platforms have solved the problem of logging in elegant ways. Metalogger is an attempt to integrate that experience 
+into Node.js and achieve seamless logging experience.
 
 The metalogger module is a very lightweight bridge/wrapper for a number of popular logging implementations: 
 [npmlog](https://github.com/isaacs/npmlog), 
