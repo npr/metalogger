@@ -19,7 +19,7 @@ The metalogger module is a very lightweight bridge/wrapper for different popular
 uses the metalogger library can choose which logging implementation to use at runtime. 
 
 Usage of Metalogger is not limited to just standalone modules. Full-blown Node applications may also choose to 
-Metalogger to ensure that a change to a different logging implementation is not a hassle, if and when needed.
+use Metalogger to ensure that a change to a different logging implementation is not a hassle, if and when needed.
 
 ## Installation and Initialization
 
