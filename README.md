@@ -57,3 +57,32 @@ Where the the arguments of initialization are:
 - __INFO__ a purely informational message
 - __DEBUG__ messages to debug an application
 
+## Using
+
+The great value of metalogger is in unifying (to the level it makes sense) the usage of various loggers. Even though first 
+three implemented loggers (util, npmlog, log) are quite different, metalogger manages to bridge these differences.
+
+Most commonly you will probably want to parametrize initialization of your module's logging:
+
+```javascript
+  var log = require('metalogger')(process.env.NODE_LOGGER_PLUGIN, process.env.NODE_LOGGER_LEVEL);
+```
+
+after which you can use the simple or advanced syntaxes, regardless of the underlying logging plugin.
+
+#### Simple Syntax:
+
+In the simple syntax, you can just pass some message (or a javascript object, which will be properly expanded/serialized):
+```javascript
+log.(message);
+```
+
+#### Advanced Syntax
+
+In the complex syntax, you can use caption (first argument), format (second argument) and unlimited number of value-arguments
+to construct complex expressions:
+
+```javascript
+log.("Caption: ", "Template is string: %s, number: %d, number2: %s", somestring, somenumber, othernumber);
+```
+the format syntax follows the semantics of [util.format](http://nodejs.org/api/util.html#util_util_inspect_object_options)
