@@ -57,7 +57,7 @@ Where the the arguments of initialization are:
 - __INFO__ a purely informational message
 - __DEBUG__ messages to debug an application
 
-## Using
+## Usage
 
 The great value of metalogger is in unifying (to the level it makes sense) the usage of various loggers. Even though first 
 three implemented loggers (util, npmlog, log) are quite different, metalogger manages to bridge these differences.
