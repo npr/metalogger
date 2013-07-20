@@ -31,10 +31,10 @@ npm install metalogger
 Initialize: 
 
 ```javascript
-var log = require('metalogger')('util', 'info');
+var log = require('metalogger')(process.env.NODE_LOGGER_PLUGIN, process.env.NODE_LOGGER_LEVEL);
 ```
 
-Where the the arguments of initialization are:
+Where the arguments of initialization are:
 
 1. Short name of the implemented logging plugin. Current implementations include:  ('util', 'npmlog', 'log'). 
 
