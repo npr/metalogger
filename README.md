@@ -26,7 +26,7 @@ Install:
 
 ```bash
 npm install metalogger
-```bash
+```
 
 Initialize: 
 
