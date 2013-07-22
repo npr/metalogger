@@ -68,4 +68,11 @@ log.debug('something debug');
 log.notice('something notice');
 log.warning('something warning');
 log.alert('something alert');
-log.critical('something critical');
+log.critical('something critical'); 
+
+// -- TEST DEFAULTS
+
+log = require('./lib/metalogger')(); //use sefaults or process.env values
+
+log.info("THIS IS TESTING DEFAULTS");
+log.warning("WARNING: env process vars are being used!");
