@@ -37,7 +37,7 @@ var log = require('metalogger')(plugin, level);
 
 Where the arguments of initialization are:
 
-1. plugin: short name of the implemented logging plugin. Current implementations include:  ('util', 'npmlog', 'log'). If you
+1. `plugin`: short name of the implemented logging plugin. Current implementations include:  ('util', 'npmlog', 'log'). If you
    skip this value or pass `null`, it will default to the value of the environmental variable NODE_LOGGER_PLUGIN
 
     Full current list can be checked, at runtime, by issuing: 
@@ -46,7 +46,7 @@ Where the arguments of initialization are:
       log.loggers();
     ```
     
-1. level: name of the default theshold logging level. If you
+1. `level`: name of the default theshold logging level. If you
    skip this value or pass `null`, it will default to the value of the environmental variable NODE_LOGGER_LEVEL
 
     Current list of allowed level names can be retrieved by issuing:
