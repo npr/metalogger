@@ -2,12 +2,6 @@ var assert     = require('assert');
 
 describe('log level check: ', function() {
   
-  var logger = require('../')('util', 'info');
-  
-  it('logger initializes properly', function() {
-    assert.equal(true, typeof logger === 'function');
-  });
-
   var logLevelAllowed = require('../').logLevelAllowed; 
   
   it('lesser logger <debug> not allowed', function() {
@@ -40,6 +34,34 @@ describe('log level check: ', function() {
 
   it('higher logger <emergency> allowed', function() {
     assert.equal(true, logLevelAllowed('emergency', 'warning'));
+  });
+
+
+});
+
+describe('initialization verification: ', function() {
+    
+  it('logger initializes properly with valid level and logger plugin', function() {
+    var logger = require('../')('util', 'info');  
+    assert.equal(true, typeof logger === 'function');
+  });
+
+  it('logger bans invalid logger plugin', function() {
+    assert.throws(
+      function() {
+        var logger = require('../')('utility', 'info');
+      },
+      /Logger (.*?) is not implemented. Cannot initialize metalogger./
+    );
+  });
+
+  it('logger bans invalid logger level', function() {
+    assert.throws(
+      function() {
+        var logger = require('../')('util', 'information');
+      },
+      /Level (.*?) is not allowed. Cannot initialize metalogger./
+    );
   });
 
 

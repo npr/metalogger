@@ -29,15 +29,16 @@ Install:
 npm install metalogger
 ```
 
-Initialize: 
+Initialization: 
 
 ```javascript
-var log = require('metalogger')(process.env.NODE_LOGGER_PLUGIN, process.env.NODE_LOGGER_LEVEL);
+var log = require('metalogger')(plugin, level);
 ```
 
 Where the arguments of initialization are:
 
-1. Short name of the implemented logging plugin. Current implementations include:  ('util', 'npmlog', 'log'). 
+1. plugin: short name of the implemented logging plugin. Current implementations include:  ('util', 'npmlog', 'log'). If you
+   skip this value or pass `null`, it will default to the value of the environmental variable NODE_LOGGER_PLUGIN
 
     Full current list can be checked, at runtime, by issuing: 
     
@@ -45,7 +46,10 @@ Where the arguments of initialization are:
       log.loggers();
     ```
     
-1. Name of the logging level. Current list allowed can be retrieved by issuing:
+1. level: name of the default theshold logging level. If you
+   skip this value or pass `null`, it will default to the value of the environmental variable NODE_LOGGER_LEVEL
+
+    Current list of allowed level names can be retrieved by issuing:
 
     ```
       log.levels();
@@ -67,10 +71,14 @@ Where the arguments of initialization are:
 The great value of metalogger is in unifying (to the level it makes sense) the usage of various loggers. Even though first 
 three implemented loggers (util, npmlog, log) are quite different, metalogger manages to bridge these differences.
 
-Most commonly you will probably want to parametrize initialization of your module's logging:
+As a best practice, you shouldn't set plugin and/or level values when initializing metalooger from your re-usable modules. 
+If not set, these values default to NODE_LOGGER_PLUGIN and NODE_LOGGER_LEVEL environmental variables, allowing the main 
+application to affect all modules in the application. 
+
+Initialize metalooger, in your modules, as follows:
 
 ```javascript
-  var log = require('metalogger')(process.env.NODE_LOGGER_PLUGIN, process.env.NODE_LOGGER_LEVEL);
+  var log = require('metalogger')();
 ```
 
 after which you can use the simple or advanced syntaxes, regardless of the underlying logging plugin.
