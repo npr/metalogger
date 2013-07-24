@@ -1,5 +1,7 @@
 ## What is MetaLogger?
 
+TL;DR: [NodejsReactions Animated Gif](http://nodejsreactions.tumblr.com/post/56061993138/when-a-dependency-starts-writing-to-stdout)
+
 If you are familiar with [Apache Commons Logging](http://commons.apache.org/proper/commons-logging/) then you know 
 why Node.js needs Metalogger, if not: keep reading.
 
