@@ -1,7 +1,7 @@
 {
   "name"        : "metalogger"
-, "description" : "A thin logging wrapper for Node.js which leaves you the choice, but removes the pain. Inspired by Apache Commons Logging"
-, "version"     : "0.1.7"
+, "description" : "Node.js logging for grown-ups: a versatile logging wrapper that leaves you the choice, but removes the pain. Inspired by Apache Commons Logging"
+, "version"     : "0.1.8"
 , "license": {
     "type": "MIT"
   ,  "url": "https://github.com/publicmediaplatform/metalogger/blob/master/LICENSE"
@@ -21,8 +21,9 @@
   }
 , "main"        : "./lib/metalogger.js"
 , "dependencies":{
-    "log"    : "*"
-  , "npmlog" : "*"  
+    "callsite" : "*"
+  , "log"      : "*"
+  , "npmlog"   : "*"  
   }
 , "devDependencies": {
     "assert" : "*"

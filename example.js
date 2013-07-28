@@ -1,3 +1,8 @@
+process.env.NODE_LOGGER_SHOWLINES = 1;
+
+var samplemod = require('./lib/examplemod.js');
+samplemod.foo();
+
 var log = require('./lib/metalogger')('npmlog', 'debug');
 var util = require('util');
 
@@ -8,7 +13,9 @@ var obj = {
 , "languages"    : ["Node.js", "Java", "PHP", "Python", "Ruby", "TCL"]
 , "tvshows"      : ["Burn Notice", "Top Gear", "Scrubs"]
 }
+
 //------ Npmlog.js
+console.log('------ USING NPMLOG');
 
 log.info('something info');
 log.error('something error');
@@ -19,12 +26,13 @@ log.alert('something alert');
 log.critical('something critical');
 
 log.info(obj);
+log.info('some caption', obj);
 
 // Complex syntax:
 log.error('caption', 'num: %d, title: %s', 125, "npr");
 
-
 //------ Log.js
+console.log('------ USING LOG.js');
 
 log = require('./lib/metalogger')('log', 'debug');
 
@@ -37,11 +45,13 @@ log.alert('something alert');
 log.critical('something critical');
 
 log.info(obj);
+log.info('some caption', obj);
 
 // Complex syntax:
 log.error('caption', 'num: %d, title: %s', 125, "npr");
 
 //------ UTIL
+console.log('------ USING Util');
 
 log = require('./lib/metalogger')('util', 'debug');
 
@@ -54,6 +64,7 @@ log.alert('something alert');
 log.critical('something critical');
 
 log.info(obj);
+log.info('some caption', obj);
 
 // Complex syntax:
 log.error('caption', 'num: %d, title: %s', 125, "npr");
