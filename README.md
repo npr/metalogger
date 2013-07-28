@@ -1,5 +1,19 @@
 ## What is MetaLogger?
 
+Metalogger is a versatile logging library for Node.js that provides following features:
+
+1. Granular, Linux Syslog-compatible logging levels.
+2. Pluggable logging infrastructure (implemented: npmlog, log.js, util-based logging).
+3. Timestamps for all log messages
+4. Filename and line-numbers for all log messages!
+5. Granular logging control: alter global logging threshhold for specific files.
+6. Application-development-friendly configuration
+ 
+
+## Why Should You Use it?
+
+Well, being able to see the filename and line number where logs were fired is awesome! But also:
+
 TL;DR: [NodejsReactions Animated Gif](http://nodejsreactions.tumblr.com/post/56061993138/when-a-dependency-starts-writing-to-stdout)
 
 If you are familiar with [Apache Commons Logging](http://commons.apache.org/proper/commons-logging/) then you know 
@@ -20,8 +34,8 @@ The metalogger module is a very lightweight bridge/wrapper for a number of popul
 [log](https://github.com/visionmedia/log.js), [util](http://nodejs.org/api/util.html). A node.js module that 
 uses the metalogger library can choose which logging implementation to use at runtime.
 
-Usage of Metalogger is not limited to just standalone modules. Full-blown Node applications may also choose to 
-use Metalogger to ensure that a switch over to a different logging implementation won't be a hassle, if and when needed.
+Usage of Metalogger is not limited to just standalone modules. Full-blown Node applications will also benefit from 
+using Metalogger to ensure that a switch-over to a different logging implementation won't be a hassle, if and when needed.
 
 ## Installation and Initialization
 
@@ -37,7 +51,7 @@ Initialization:
 var log = require('metalogger')(plugin, level);
 ```
 
-Where the arguments of initialization are:
+Where the arguments of the initialization are:
 
 1. `plugin`: short name of the implemented logging plugin. Current implementations include:  ('util', 'npmlog', 'log'). If you
    skip this value or pass `null`, it will default to the value of the environmental variable NODE_LOGGER_PLUGIN
@@ -48,7 +62,7 @@ Where the arguments of initialization are:
       log.loggers();
     ```
     
-1. `level`: name of the default theshold logging level. If you
+1. `level`: name of the default threshold logging level. If you
    skip this value or pass `null`, it will default to the value of the environmental variable NODE_LOGGER_LEVEL
 
     Current list of allowed level names can be retrieved by issuing:
@@ -57,7 +71,8 @@ Where the arguments of initialization are:
       log.levels();
     ```    
     
-    As of this writing the list of levels mirrors that of syslog (and log.js) and is as follows (in decreasing criticality):
+    As of this writing the list of the supported levels mirrors that of syslog (and log.js) and is as 
+    follows (in decreasing criticality):
     
 - __EMERGENCY__  system is unusable
 - __ALERT__ action must be taken immediately
@@ -68,34 +83,50 @@ Where the arguments of initialization are:
 - __INFO__ a purely informational message
 - __DEBUG__ messages to debug an application
 
+## Filename and Line Number Display
+
+For increased debugging comfort Metalogger automatically displays the filename and line number where a log
+message is fired at. This is typically very handy in development. If you wish to disable this in production, however
+set the environment variable `NODE_LOGGER_SHOWLINES` to 0 or any value that is not 1.
+
 ## Usage
 
-The great value of metalogger is in unifying (to the level it makes sense) the usage of various loggers. Even though first 
-three implemented loggers (util, npmlog, log) are quite different, metalogger manages to bridge these differences.
+The great value of metalogger is in unifying (to the level that it makes sense) the usage of various loggers. 
+Even though the first three implemented loggers (util, npmlog, log) are quite different, metalogger manages 
+to bridge these differences.
 
-As a best practice, you shouldn't set plugin and/or level values when initializing metalooger from your re-usable modules. 
-If not set, these values default to NODE_LOGGER_PLUGIN and NODE_LOGGER_LEVEL environmental variables, allowing the main 
-application to affect all modules in the application. 
+As a best practice, you shouldn't set plugin and/or level values when initializing metalogger from your re-usable modules. 
+If not set, these values will default to NODE_LOGGER_PLUGIN and NODE_LOGGER_LEVEL environmental variables, 
+allowing the main application to control desired logging universally. 
 
-Initialize metalooger, in your modules, as follows:
+Initialize metalogger, in your modules, as follows:
 
 ```javascript
   var log = require('metalogger')();
 ```
 
-after which you can use the simple or advanced syntaxes, regardless of the underlying logging plugin.
+after which you can use one of the following syntaxes, regardless of the underlying logging plugin.
 
 #### Simple Syntax:
 
 In the simple syntax, you can just pass some message (or a javascript object, which will be properly expanded/serialized):
 ```javascript
-log.debug(message);
+log.info(message);
+```
+
+#### Using a caption:
+
+Captioned syntax is very useful for debugging object. You can provide the title for the object in caption and
+pass your Javascript object as the second argument. Metalogger will automatically expend the object for you and
+display it as a JSON representation.
+```javascript
+log.debug("User object:", user);
 ```
 
 #### Advanced Syntax
 
-In the complex syntax, you can use caption (first argument), format (second argument) and unlimited number of value-arguments
-to construct complex expressions:
+In the advanced syntax, you can use caption (first argument), format (second argument) and unlimited number of 
+value-arguments to construct a complex expressions:
 
 ```javascript
 log.debug("Caption: ", "Formatted sequence is string: %s, number: %d, number2: %d", somestring, somenumber, othernumber);
