@@ -48,6 +48,8 @@ npm install metalogger
 Initialization: 
 
 ```javascript
+var log = require('metalogger')(); // preferred. Read further.
+// or if you need more verbose syntax:
 var log = require('metalogger')(plugin, level);
 ```
 
