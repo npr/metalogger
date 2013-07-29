@@ -147,7 +147,7 @@ Let's assume you would like to turn logging level to 'debug' for a file: `lib/mo
 variable as follows (example for Linux):
 
 ```
-export NODE_LEVEL_lib_models_user_js='debug'
+export NODE_LOGGER_LEVEL_lib_models_user_js='debug'
 ```
 
 Please note that since Linux shell doesn't allow dots or slashes in a variable name, you have to replace those 
