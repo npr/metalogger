@@ -1,10 +1,31 @@
 process.env.NODE_LOGGER_SHOWLINES = 1;
+process.env.NODE_LOGGER_LEVEL = 'info';
+
+// Granularity checks
+
 
 var samplemod = require('./lib/examplemod.js');
-samplemod.foo();
 
-var log = require('./lib/metalogger')('npmlog', 'debug');
-var util = require('util');
+console.log("Testing granularity for util");
+process.env.NODE_LOGGER_LEVEL_lib_examplemod_js = null;
+samplemod.foo('util');
+process.env.NODE_LOGGER_LEVEL_lib_examplemod_js = 'debug';
+samplemod.foo('util');
+
+console.log("Testing granularity for npmlog");
+process.env.NODE_LOGGER_LEVEL_lib_examplemod_js = null;
+samplemod.foo('npmlog');
+process.env.NODE_LOGGER_LEVEL_lib_examplemod_js = 'debug';
+samplemod.foo('npmlog');
+
+console.log("Testing granularity for log.js");
+process.env.NODE_LOGGER_LEVEL_lib_examplemod_js = null;
+samplemod.foo('log');
+process.env.NODE_LOGGER_LEVEL_lib_examplemod_js = 'debug';
+samplemod.foo('log');
+
+
+//-- Test data
 
 var obj = {
   "name"         : "Irakli"
@@ -16,6 +37,9 @@ var obj = {
 
 //------ Npmlog.js
 console.log('------ USING NPMLOG');
+
+var log = require('./lib/metalogger')('npmlog', 'debug');
+var util = require('util');
 
 log.info('something info');
 log.error('something error');
