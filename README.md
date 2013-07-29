@@ -154,3 +154,24 @@ Please note that since Linux shell doesn't allow dots or slashes in a variable n
 with underscores.
 
 Path to file must be indicated from the current folder of the node process.
+
+### Production Configuration
+
+Suggested production configuration for Metalogger is as follows:
+
+```
+export NODE_LOGGER_LEVEL='notice'
+export NODE_LOGGER_GRANULARLEVELS=0
+```
+
+which will set default logging level at `notice`, and turn off granular level processing for better performance. 
+
+If you are really concerned about performance you can also turn off 'show lines` feaure with:
+
+```
+export NODE_LOGGER_SHOWLINES=0
+```
+
+it is typically not necessary however, since unless you're logging a lot, the overhead of showing filelines in the log
+is not high (typically: small fraction of a millisecond) and in most cases it could be quite useful to be able to see 
+where error logs occured even in production, for debugging purposes.
