@@ -132,3 +132,23 @@ value-arguments to construct a complex expressions:
 log.debug("Caption: ", "Formatted sequence is string: %s, number: %d, number2: %d", somestring, somenumber, othernumber);
 ```
 the format syntax follows the semantics of [util.format](http://nodejs.org/api/util.html#util_util_inspect_object_options)
+
+### Granular Logging
+
+Global logging level can be overriden on a per-file basis. This can be extremely useful when you are 
+debugging or developing a specific module and want to use granular logging for it, but want to turn off 
+the noise from the rest of the modules.
+
+To override global logging level for a specific file, you set an environment variable as follows:
+
+Let's assume you would like to turn logging level to 'debug' for a file: `lib/models/user.js', you set an environmental
+variable as follows (example for Linux):
+
+```
+export NODE_LEVEL_lib_models_user_js='debug'
+```
+
+Please note that since Linux shell doesn't allow dots or slashes in a variable name, you have to replace those 
+with underscores.
+
+Path to file must be indicated from the current folder of the node process.
