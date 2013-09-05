@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/publicmediaplatform/metalogger.png)](https://travis-ci.org/publicmediaplatform/metalogger)
+
 ## What is MetaLogger?
 
 Metalogger is a versatile logging library for Node.js that provides following features:
