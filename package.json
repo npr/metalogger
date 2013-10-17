@@ -1,7 +1,7 @@
 {
   "name"        : "metalogger"
 , "description" : "Node.js logging for grown-ups: a versatile logging wrapper that leaves you the choice, but removes the pain. Inspired by Apache Commons Logging"
-, "version"     : "0.1.13"
+, "version"     : "0.1.14"
 , "license" : {
     "type" : "MIT"
   ,  "url" : "https://github.com/publicmediaplatform/metalogger/blob/master/LICENSE"
