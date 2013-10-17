@@ -21,9 +21,10 @@
   }
 , "main"         : "./lib/metalogger.js"
 , "dependencies" :{
-    "callsite" : "*"
-  , "log"      : "*"
-  , "npmlog"   : "*"  
+    "callsite"    : "*"
+  , "log"         : "*"
+  , "npmlog"      : "*"
+  , "ain2"        : "1.x"
   }
 , "devDependencies" : {
     "assert" : "*"
