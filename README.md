@@ -33,6 +33,7 @@ into Node.js and achieve seamless logging experience.
 
 The metalogger module is a very lightweight bridge/wrapper for a number of popular logging implementations: 
 [npmlog](https://github.com/isaacs/npmlog), 
+[syslog/ain2](https://npmjs.org/package/ain2),
 [log](https://github.com/visionmedia/log.js), [util](http://nodejs.org/api/util.html). A node.js module that 
 uses the metalogger library can choose which logging implementation to use at runtime.
 
@@ -177,3 +178,10 @@ export NODE_LOGGER_SHOWLINES=0
 it is typically not necessary however, since unless you're logging a lot, the overhead of showing filelines in the log
 is not high (typically: small fraction of a millisecond) and in most cases it could be quite useful to be able to see 
 where error logs occured even in production, for debugging purposes.
+
+### Syslog Configuration
+
+You can control syslog configuration for AIN2 using the following environmental variables:
+
+- `NODE_LOGGER_SYSLOG_FACILITY`
+- `NODE_LOGGER_SYSLOG_APPNAME`
