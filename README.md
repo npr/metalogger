@@ -5,7 +5,7 @@
 Metalogger is a versatile logging library for Node.js that provides following features:
 
 1. Granular, Linux Syslog-compatible logging levels.
-2. Pluggable logging infrastructure (implemented: npmlog, log.js, util-based logging).
+2. Pluggable logging infrastructure (implemented: ain2 (syslog), npmlog, log.js, util-based logging).
 3. Timestamps for all log messages
 4. Filename and line-numbers for all log messages!
 5. Granular logging control: alter global logging threshhold for specific files.
@@ -33,6 +33,7 @@ into Node.js and achieve seamless logging experience.
 
 The metalogger module is a very lightweight bridge/wrapper for a number of popular logging implementations: 
 [npmlog](https://github.com/isaacs/npmlog), 
+[syslog/ain2](https://npmjs.org/package/ain2),
 [log](https://github.com/visionmedia/log.js), [util](http://nodejs.org/api/util.html). A node.js module that 
 uses the metalogger library can choose which logging implementation to use at runtime.
 
@@ -57,7 +58,7 @@ var log = require('metalogger')(plugin, level);
 
 Where the arguments of the initialization are:
 
-1. `plugin`: short name of the implemented logging plugin. Current implementations include:  ('util', 'npmlog', 'log'). If you
+1. `plugin`: short name of the implemented logging plugin. Current implementations include:  ('ain2', 'util', 'npmlog', 'log'). If you
    skip this value or pass `null`, it will default to the value of the environmental variable NODE_LOGGER_PLUGIN
 
     Full current list can be checked, at runtime, by issuing: 
@@ -177,3 +178,10 @@ export NODE_LOGGER_SHOWLINES=0
 it is typically not necessary however, since unless you're logging a lot, the overhead of showing filelines in the log
 is not high (typically: small fraction of a millisecond) and in most cases it could be quite useful to be able to see 
 where error logs occured even in production, for debugging purposes.
+
+### Syslog Configuration
+
+You can control syslog configuration for AIN2 using the following environmental variables:
+
+- `NODE_LOGGER_SYSLOG_FACILITY`
+- `NODE_LOGGER_SYSLOG_APPNAME`
