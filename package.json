@@ -25,11 +25,14 @@
   , "log"         : "*"
   , "npmlog"      : "*"
   , "ain2"        : "1.x"
+  , "loggly"      : "*"
   }
 , "devDependencies" : {
     "assert" : "*"
   , "should" : "*"  
   , "mocha"  : "*"
+  , "config" : "*"
+  , "yaml"   : "*"
   }  
 , "scripts": {
     "test" : "mocha"
