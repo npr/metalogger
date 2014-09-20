@@ -11,8 +11,11 @@ var CONF = require('config');
 process.env.NODE_LOGGER_LOGGLY_TOKEN = CONF.test.auth_token;
 process.env.NODE_LOGGER_LOGGLY_SUBDOMAIN = 'pmp';
 
-var log   = require('../')('loggly', 'debug');
+if (process.env.NODE_LOGGER_LOGGLY_TOKEN && process.env.NODE_LOGGER_LOGGLY_SUBDOMAIN) {
+  var log   = require('../')('loggly', 'debug');
 
-log.debug('test debug level');
-log.info('test info level');
-log.error('test error level');
+  log.debug('test debug level');
+  log.info('test info level');
+  log.error('test error level');  
+}
+

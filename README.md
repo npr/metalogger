@@ -45,7 +45,13 @@ using Metalogger to ensure that a switch-over to a different logging implementat
 Install:
 
 ```bash
-npm install metalogger
+> npm install metalogger
+```
+
+If you are planning to use syslogging via ain2 bridge, you should install ain2 manually, since it is an optional dependency:
+
+```bash
+> npm install ain2
 ```
 
 Initialization: 
