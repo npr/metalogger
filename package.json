@@ -28,13 +28,22 @@
   , "loggly"      : "*"
   }
 , "devDependencies" : {
-    "assert" : "*"
-  , "should" : "*"  
-  , "mocha"  : "*"
+    "after": "0.8.1"
+  , "chai": "^1.9.1"
+  , "commander": ""
+  , "coveralls": "^2.11.2"
+  , "glob": ""
+  , "istanbul": "0.3.2"
+  , "jshint": "~2.5.x"
+  , "mocha": "~1.21.4"
+  , "mocha-lcov-reporter": "0.0.1"
+  , "nock": "^0.48.0"
+  , "should": "~4.0.4"
   , "config" : "*"
   , "yaml"   : "*"
   }  
-, "scripts": {
-    "test" : "mocha"
+, "scripts": {    
+    "prepublish": "npm prune",
+    "test": "mocha --require test/support/env --reporter spec --bail --check-leaks test/ "
   }  
 }
