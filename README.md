@@ -34,6 +34,7 @@ into Node.js and achieve seamless logging experience.
 
 The metalogger module is a very lightweight bridge/wrapper for a number of popular logging implementations: 
 [npmlog](https://github.com/isaacs/npmlog), 
+[loggly](https://www.loggly.com/), 
 [syslog/ain2](https://npmjs.org/package/ain2),
 [log](https://github.com/visionmedia/log.js), [util](http://nodejs.org/api/util.html). A node.js module that 
 uses the metalogger library can choose which logging implementation to use at runtime.
