@@ -8,6 +8,7 @@
  */
 var CONF = require('config');
 
+/*jshint camelcase: false */
 process.env.NODE_LOGGER_LOGGLY_TOKEN = CONF.test.auth_token;
 process.env.NODE_LOGGER_LOGGLY_SUBDOMAIN = 'pmp';
 
