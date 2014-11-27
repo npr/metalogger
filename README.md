@@ -6,7 +6,7 @@
 Metalogger is a versatile logging library for Node.js that provides following features:
 
 1. Granular, Linux Syslog-compatible logging levels.
-2. Pluggable logging infrastructure (implemented: ain2 (syslog), npmlog, log.js, util-based logging).
+2. Pluggable logging infrastructure (implemented: ain2 (syslog), npmlog, log.js, util-based logging, loggly).
 3. Timestamps for all log messages
 4. Filename and line-numbers for all log messages!
 5. Granular logging control: alter global logging threshhold for specific files.
