@@ -27,18 +27,18 @@
   "main": "./lib/metalogger.js",
   "dependencies": {
     "callsite": "*",
-    "chai": "^3.4.0",
+    "config": "^1.16.0",
     "log": "*",
     "loggly": "*",
     "npmlog": "*",
     "optional": "*",
-    "s3-streamlogger": "^0.2.1"
+    "s3-streamlogger": "^0.2.1",
+    "yaml": "^0.2.3"
   },
   "devDependencies": {
     "after": "0.8.1",
     "chai": "^3.4.0",
     "commander": "",
-    "config": "*",
     "coveralls": "^2.11.2",
     "glob": "",
     "istanbul": "^0.4.0",
@@ -46,8 +46,7 @@
     "mocha": "^2.3.3",
     "mocha-lcov-reporter": "^1.0.0",
     "nock": "^2.17.0",
-    "should": "^7.1.1",
-    "yaml": "*"
+    "should": "^7.1.1"
   },
   "scripts": {
     "prepublish": "npm prune",
