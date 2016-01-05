@@ -1,11 +1,8 @@
 {
   "name": "metalogger",
   "description": "Node.js logging for grown-ups: a versatile logging wrapper that leaves you the choice, but removes the pain. Inspired by Apache Commons Logging",
-  "version": "1.0.3",
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/publicmediaplatform/metalogger/blob/master/LICENSE"
-  },
+  "version": "1.1.1",
+  "license": "MIT", 
   "author": {
     "name": "Irakli Nadareishvili",
     "email": "irakli@gmail.com"
@@ -14,6 +11,10 @@
     {
       "name": "John Nelson",
       "email": "john@catchjohn.com"
+    },
+    {
+      "name": "Andrew Winder",
+      "email": "awinder@gmail.com"
     }
   ],
   "repository": {
@@ -23,26 +24,26 @@
   "main": "./lib/metalogger.js",
   "dependencies": {
     "callsite": "*",
+    "config": "^1.16.0",
     "log": "*",
     "loggly": "*",
     "npmlog": "*",
     "optional": "*",
-    "s3-streamlogger": "^0.2.1"
+    "s3-streamlogger": "^0.2.1",
+    "yaml": "^0.2.3"
   },
   "devDependencies": {
     "after": "0.8.1",
-    "chai": "^1.9.1",
+    "chai": "^3.4.0",
     "commander": "",
     "coveralls": "^2.11.2",
     "glob": "",
-    "istanbul": "0.3.2",
-    "jshint": "~2.5.x",
-    "mocha": "~1.21.4",
-    "mocha-lcov-reporter": "0.0.1",
-    "nock": "^0.48.0",
-    "should": "~4.0.4",
-    "config": "*",
-    "yaml": "*"
+    "istanbul": "^0.4.0",
+    "jshint": "^2.8.0",
+    "mocha": "^2.3.3",
+    "mocha-lcov-reporter": "^1.0.0",
+    "nock": "^2.17.0",
+    "should": "^7.1.1"
   },
   "scripts": {
     "prepublish": "npm prune",
