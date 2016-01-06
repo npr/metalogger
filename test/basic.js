@@ -1,9 +1,14 @@
 var assert     = require('assert');
 
 describe('log level check: ', function() {
-  
-  var logLevelAllowed = require('../').logLevelAllowed; 
-  
+
+  var testable = require('../');
+  var levels = testable.logLevels();
+  var shouldLog = testable.shouldLog;
+  var logLevelAllowed = testable.logLevelAllowed;
+  var logLevelAllowedGranular = testable.logLevelAllowedGranular;
+
+
   it('lesser logger <debug> should not be allowed', function() {
     assert.equal(false, logLevelAllowed('debug', 'warning'));
   });
@@ -34,6 +39,16 @@ describe('log level check: ', function() {
 
   it('higher logger <emergency> should be allowed', function() {
     assert.equal(true, logLevelAllowed('emergency', 'warning'));
+  });
+
+  it('granular checking should be undefined if not enabled', function() {
+    assert.equal(undefined, logLevelAllowedGranular('warning'));
+  });
+
+  it('logging is not allowed if we do not know for sure that it is', function () {
+    levels.forEach(function(level) {
+      assert.equal(false, shouldLog(level));
+    });
   });
 
 
