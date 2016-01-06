@@ -6,7 +6,7 @@
 Metalogger is a versatile logging library for Node.js that provides following features:
 
 1. Granular, Linux Syslog-compatible logging levels.
-2. Pluggable logging infrastructure (implemented: ain2 (syslog), npmlog, log.js, util-based logging, loggly).
+2. Pluggable logging infrastructure (implemented: ain2 (syslog), npmlog, log.js, util-based logging, loggly, sumologic).
 3. Timestamps for all log messages
 4. Filename and line-numbers for all log messages!
 5. Granular logging control: alter global logging threshhold for specific files.
@@ -35,8 +35,10 @@ into Node.js and achieve seamless logging experience.
 The metalogger module is a very lightweight bridge/wrapper for a number of popular logging implementations: 
 [npmlog](https://github.com/isaacs/npmlog), 
 [loggly](https://www.loggly.com/), 
+[sumologic](https://www.sumologic.com/), 
 [syslog/ain2](https://npmjs.org/package/ain2),
-[log](https://github.com/visionmedia/log.js), [util](http://nodejs.org/api/util.html). A node.js module that 
+[log](https://github.com/visionmedia/log.js), 
+[util](http://nodejs.org/api/util.html). A node.js module that 
 uses the metalogger library can choose which logging implementation to use at runtime.
 
 Usage of Metalogger is not limited to just standalone modules. Full-blown Node applications will also benefit from 
