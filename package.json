@@ -4,17 +4,14 @@
   "version": "1.2.1",
   "license": "MIT",
   "author": {
-    "name": "Irakli Nadareishvili",
-    "email": "irakli@gmail.com"
+    "name": "Irakli Nadareishvili"
   },
   "contributors": [
     {
-      "name": "John Nelson",
-      "email": "john@catchjohn.com"
+      "name": "John Nelson"
     },
     {
-      "name": "Andrew Winder",
-      "email": "awinder@gmail.com"
+      "name": "Andrew Winder"
     },
     {
       "name": "Randall Randall"
