@@ -1,8 +1,8 @@
 {
   "name": "metalogger",
   "description": "Node.js logging for grown-ups: a versatile logging wrapper that leaves you the choice, but removes the pain. Inspired by Apache Commons Logging",
-  "version": "1.1.1",
-  "license": "MIT", 
+  "version": "1.2.1",
+  "license": "MIT",
   "author": {
     "name": "Irakli Nadareishvili",
     "email": "irakli@gmail.com"
@@ -15,6 +15,9 @@
     {
       "name": "Andrew Winder",
       "email": "awinder@gmail.com"
+    },
+    {
+      "name": "Randall Randall"
     }
   ],
   "repository": {
@@ -23,11 +26,11 @@
   },
   "main": "./lib/metalogger.js",
   "dependencies": {
-    "callsite": "*",
+    "callsite": "^1.0.0",
     "config": "^1.16.0",
-    "log": "*",
-    "loggly": "*",
-    "npmlog": "*",
+    "log": "^1.4.0",
+    "loggly": "^1.0.8",
+    "npmlog": "^1.2.1",
     "optional": "*",
     "s3-streamlogger": "^0.2.1",
     "yaml": "^0.2.3"
