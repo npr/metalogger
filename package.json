@@ -32,7 +32,7 @@
     "loggly": "^1.0.8",
     "npmlog": "^1.2.1",
     "optional": "*",
-    "s3-streamlogger": "^0.2.1",
+    "s3-streamlogger": "^0.3.0",
     "yaml": "^0.2.3"
   },
   "devDependencies": {
