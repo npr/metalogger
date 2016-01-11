@@ -29,7 +29,7 @@
     "loggly": "*",
     "npmlog": "*",
     "optional": "*",
-    "s3-streamlogger": "^0.2.1",
+    "s3-streamlogger": "^0.3.0",
     "yaml": "^0.2.3"
   },
   "devDependencies": {
