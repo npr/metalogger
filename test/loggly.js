@@ -9,8 +9,8 @@
 var CONF = require('config');
 
 /*jshint camelcase: false */
-process.env.NODE_LOGGER_LOGGLY_TOKEN = '30e9c505-d9c5-405c-869a-e891fce33583';
-process.env.NODE_LOGGER_LOGGLY_SUBDOMAIN = 'irakli';
+process.env.NODE_LOGGER_LOGGLY_TOKEN = CONF.test.auth_token;
+process.env.NODE_LOGGER_LOGGLY_SUBDOMAIN = 'pmp';
 
 if (process.env.NODE_LOGGER_LOGGLY_TOKEN && process.env.NODE_LOGGER_LOGGLY_SUBDOMAIN) {
   var log   = require('../')('loggly', 'debug');
