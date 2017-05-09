@@ -1,7 +1,7 @@
 {
   "name": "metalogger",
   "description": "Node.js logging for grown-ups: a versatile logging wrapper that leaves you the choice, but removes the pain. Inspired by Apache Commons Logging",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "license": "MIT",
   "author": {
     "name": "Irakli Nadareishvili"
@@ -30,6 +30,7 @@
     "npmlog": "^1.2.1",
     "optional": "*",
     "s3-streamlogger": "^0.3.0",
+    "winston": "^2.3.1",
     "yaml": "^0.2.3"
   },
   "devDependencies": {

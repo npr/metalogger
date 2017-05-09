@@ -6,33 +6,42 @@
 Metalogger is a versatile logging library for Node.js that provides following features:
 
 1. Granular, Linux Syslog-compatible logging levels.
-2. Pluggable logging infrastructure (implemented: ain2 (syslog), npmlog, log.js, util-based logging, loggly, sumologic).
+2. Pluggable logging infrastructure (implemented: winston, ain2 (syslog),
+   npmlog, log.js, util-based logging, loggly, sumologic).
 3. Timestamps for all log messages
 4. Filename and line-numbers for all log messages!
 5. Granular logging control: alter global logging threshhold for specific files.
 6. Application-development-friendly configuration
- 
+
+If you already use Winston and think you don't need Metalogger, you should
+know that Metalogger can use Winston as a transport layer, and still provide
+all the additional great features on top of it.
 
 ## Why Should You Use it?
 
-Well, being able to see the filename and line number where logs were fired is awesome! But also:
+Well, being able to see the filename and line number where logs were fired is
+awesome! But also:
 
 TL;DR: [NodejsReactions Animated Gif](http://nodejsreactions.tumblr.com/post/56061993138/when-a-dependency-starts-writing-to-stdout)
 
-If you are familiar with [Apache Commons Logging](http://commons.apache.org/proper/commons-logging/) then you know 
-why Node.js needs Metalogger, if not: keep reading.
+If you are familiar with [Apache Commons
+Logging](http://commons.apache.org/proper/commons-logging/) then you know why
+Node.js needs Metalogger, if not: keep reading.
 
-Node.js is famous for its modular architecture. However, every module developer can have his or her own  preference 
-to which logging library they prefer to use. This can lead to one of the following non-ideal scenarios:
+Node.js is famous for its modular architecture. However, every module developer
+can have his or her own  preference to which logging library they prefer to use.
+This can lead to one of the following non-ideal scenarios:
 
 1. No logging in the released code (typically what you see in most modules, currently)
 2. Logging using the most simplistic tools that don't support varying logging levels
 3. Chaos, when each module does extensive logging, but using completely differing libraries.
 
-Other platforms have solved the problem of logging in elegant ways. Metalogger is an attempt to integrate that experience 
-into Node.js and achieve seamless logging experience.
+Other platforms have solved the problem of logging in elegant ways. Metalogger
+is an attempt to integrate that experience into Node.js and achieve seamless
+logging experience.
 
-The metalogger module is a very lightweight bridge/wrapper for a number of popular logging implementations: 
+The metalogger module is a very lightweight bridge/wrapper for a number of
+popular logging implementations:
 [npmlog](https://github.com/isaacs/npmlog), 
 [loggly](https://www.loggly.com/), 
 [sumologic](https://www.sumologic.com/), 
@@ -46,19 +55,35 @@ using Metalogger to ensure that a switch-over to a different logging implementat
 
 ## Installation and Initialization
 
-Install:
+#### Install:
 
 ```bash
 > npm install metalogger
 ```
 
-If you are planning to use syslogging via ain2 bridge, you should install ain2 manually, since it is an optional dependency:
+If you are planning to use syslogging via ain2 bridge, you should install ain2
+manually, since it is an optional dependency:
 
 ```bash
 > npm install ain2
 ```
 
-Initialization: 
+#### Using with Winston:
+
+Make sure `NODE_LOGGER_PLUGIN` environmental variable is set to `winston`.
+
+```javascript
+// with built-in winston config:
+var log = require('metalogger')();
+log.error("user:", user);
+
+// Using pre-configured winston config:
+var winstonLogger = new winston.Logger ({ transports: options.transports });
+var log = require('metalogger')(null, null, winstonLogger);
+log.error("request:", request);
+```
+
+#### Initialization:
 
 ```javascript
 var log = require('metalogger')(); // preferred. Read further.
@@ -89,14 +114,14 @@ Where the arguments of the initialization are:
     As of this writing the list of the supported levels mirrors that of syslog (and log.js) and is as 
     follows (in decreasing criticality):
     
-- __EMERGENCY__  system is unusable
-- __ALERT__ action must be taken immediately
-- __CRITICAL__ the system is in critical condition
-- __ERROR__ error condition
-- __WARNING__ warning condition
-- __NOTICE__ a normal but significant condition
-- __INFO__ a purely informational message
-- __DEBUG__ messages to debug an application
+- __emergency__  system is unusable
+- __alert__ action must be taken immediately
+- __critical__ the system is in critical condition
+- __error__ error condition
+- __warning__ warning condition
+- __notice__ a normal but significant condition
+- __info__ a purely informational message
+- __debug__ messages to debug an application
 
 ## Filename and Line Number Display
 

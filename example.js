@@ -31,9 +31,28 @@ var obj = {
   "name"         : "Irakli"
 , "lastname"     : "Nadareishvili"
 , "organization" : "NPR" 
-, "languages"    : ["Node.js", "Java", "PHP", "Python", "Ruby", "TCL"]
+, "languages"    : ["Node.js", "Java", "Golang", "Python", "Ruby", "TCL"]
 , "tvshows"      : ["Burn Notice", "Top Gear", "Scrubs"]
 }
+
+//------ Winston
+console.log('------ USING Winston.js');
+
+log = require('./lib/metalogger')('winston', 'debug');
+
+log.info('something info');
+log.error('something error');
+log.debug('something debug');
+log.notice('something notice');
+log.warning('something warning');
+log.alert('something alert');
+log.critical('something critical');
+
+log.info(obj);
+log.info('some caption', obj);
+
+// Complex syntax:
+log.error('caption', 'num: %d, title: %s', 125, "npr");
 
 //------ Npmlog.js
 console.log('------ USING NPMLOG');
