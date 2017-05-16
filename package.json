@@ -1,7 +1,7 @@
 {
   "name": "metalogger",
   "description": "Node.js logging for grown-ups: a versatile logging wrapper that leaves you the choice, but removes the pain. Inspired by Apache Commons Logging",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "license": "MIT",
   "author": {
     "name": "Irakli Nadareishvili"
@@ -25,7 +25,6 @@
   "dependencies": {
     "callsite": "^1.0.0",
     "config": "^1.16.0",
-    "loggly": "^1.1.1",
     "log": "^1.4.0",
     "npmlog": "^4.1.0",
     "optional": "*",
