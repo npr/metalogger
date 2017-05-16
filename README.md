@@ -61,12 +61,19 @@ using Metalogger to ensure that a switch-over to a different logging implementat
 > npm install metalogger
 ```
 
-If you are planning to use syslogging via ain2 bridge, you should install ain2
-manually, since it is an optional dependency:
+If you are planning to use syslogging via ain2 bridge, or loggly, you should
+install them manually, since they were made into optional dependencies:
 
 ```bash
 > npm install ain2
+# or
+> npm install loggly
 ```
+
+In case of ain2 it was made optional because syslogging requires source
+compilation and would slow-down people who don't use it. In case of loggly it
+was done because there's an outdated dependency leading to a warning, [that is
+not being take care of](https://github.com/winstonjs/node-loggly/pull/65).
 
 #### Using with Winston:
 
@@ -125,19 +132,22 @@ Where the arguments of the initialization are:
 
 ## Filename and Line Number Display
 
-For increased debugging comfort Metalogger automatically displays the filename and line number where a log
-message is fired at. This is typically very handy in development. If you wish to disable this in production, however
-set the environment variable `NODE_LOGGER_SHOWLINES` to 0 or any value that is not 1.
+For increased debugging comfort Metalogger automatically displays the filename
+and line number where a log message is fired at. This is typically very handy in
+development. If you wish to disable this in production, however set the
+environment variable `NODE_LOGGER_SHOWLINES` to 0 or any value that is not 1.
 
 ## Usage
 
-The great value of metalogger is in unifying (to the level that it makes sense) the usage of various loggers. 
-Even though the first three implemented loggers (util, npmlog, log) are quite different, metalogger manages 
-to bridge these differences.
+The great value of metalogger is in unifying (to the level that it makes sense)
+the usage of various loggers. Even though the first three implemented loggers
+(util, npmlog, log) are quite different, metalogger manages to bridge these
+differences.
 
-As a best practice, you shouldn't set plugin and/or level values when initializing metalogger from your re-usable modules. 
-If not set, these values will default to NODE_LOGGER_PLUGIN and NODE_LOGGER_LEVEL environmental variables, 
-allowing the main application to control desired logging universally. 
+As a best practice, you shouldn't set plugin and/or level values when
+initializing metalogger from your re-usable modules. If not set, these values
+will default to NODE_LOGGER_PLUGIN and NODE_LOGGER_LEVEL environmental
+variables, allowing the main application to control desired logging universally.
 
 Initialize metalogger, in your modules, as follows:
 
@@ -145,51 +155,62 @@ Initialize metalogger, in your modules, as follows:
   var log = require('metalogger')();
 ```
 
-after which you can use one of the following syntaxes, regardless of the underlying logging plugin.
+after which you can use one of the following syntaxes, regardless of the
+underlying logging plugin.
 
 #### Simple Syntax:
 
-In the simple syntax, you can just pass some message (or a javascript object, which will be properly expanded/serialized):
+In the simple syntax, you can just pass some message (or a javascript object,
+which will be properly expanded/serialized):
+
 ```javascript
 log.info(message);
 ```
 
 #### Using a caption:
 
-Captioned syntax is very useful for debugging object. You can provide the title for the object in caption and
-pass your Javascript object as the second argument. Metalogger will automatically expend the object for you and
-display it as a JSON representation.
+Captioned syntax is very useful for debugging object. You can provide the title
+for the object in caption and pass your Javascript object as the second
+argument. Metalogger will automatically expend the object for you and display it
+as a JSON representation.
+
 ```javascript
 log.debug("User object:", user);
 ```
 
 #### Advanced Syntax
 
-In the advanced syntax, you can use caption (first argument), format (second argument) and unlimited number of 
-value-arguments to construct a complex expressions:
+In the advanced syntax, you can use caption (first argument), format (second
+argument) and unlimited number of value-arguments to construct a complex
+expressions:
 
 ```javascript
 log.debug("Caption: ", "Formatted sequence is string: %s, number: %d, number2: %d", somestring, somenumber, othernumber);
 ```
-the format syntax follows the semantics of [util.format](http://nodejs.org/api/util.html#util_util_inspect_object_options)
+
+the format syntax follows the semantics of
+[util.format](http://nodejs.org/api/util.html#util_util_inspect_object_options)
 
 ### Granular Logging
 
-Global logging level can be overriden on a per-file basis. This can be extremely useful when you are 
-debugging or developing a specific module and want to use granular logging for it, but want to turn off 
-the noise from the rest of the modules.
+Global logging level can be overriden on a per-file basis. This can be extremely
+useful when you are debugging or developing a specific module and want to use
+granular logging for it, but want to turn off the noise from the rest of the
+modules.
 
-To override global logging level for a specific file, you set an environment variable as follows:
+To override global logging level for a specific file, you set an environment
+variable as follows:
 
-Let's assume you would like to turn logging level to 'debug' for a file: `lib/models/user.js', you set an environmental
-variable as follows (example for Linux):
+Let's assume you would like to turn logging level to 'debug' for a file:
+`lib/models/user.js', you set an environmental variable as follows (example for
+Linux):
 
 ```
 export NODE_LOGGER_LEVEL_lib_models_user_js='debug'
 ```
 
-Please note that since Linux shell doesn't allow dots or slashes in a variable name, you have to replace those 
-with underscores.
+Please note that since Linux shell doesn't allow dots or slashes in a variable
+name, you have to replace those with underscores.
 
 Path to file must be indicated from the current folder of the node process.
 
@@ -202,21 +223,25 @@ export NODE_LOGGER_LEVEL='notice'
 export NODE_LOGGER_GRANULARLEVELS=0
 ```
 
-which will set default logging level at `notice`, and turn off granular level processing for better performance. 
+which will set default logging level at `notice`, and turn off granular level
+processing for better performance.
 
-If you are really concerned about performance you can also turn off 'show lines` feaure with:
+If you are really concerned about performance you can also turn off 'show lines`
+feaure with:
 
 ```
 export NODE_LOGGER_SHOWLINES=0
 ```
 
-it is typically not necessary however, since unless you're logging a lot, the overhead of showing filelines in the log
-is not high (typically: small fraction of a millisecond) and in most cases it could be quite useful to be able to see 
+it is typically not necessary however, since unless you're logging a lot, the
+overhead of showing filelines in the log is not high (typically: small fraction
+of a millisecond) and in most cases it could be quite useful to be able to see
 where error logs occured even in production, for debugging purposes.
 
 ### Syslog Configuration
 
-You can control syslog configuration for AIN2 using the following environmental variables:
+You can control syslog configuration for AIN2 using the following environmental
+variables:
 
 - `NODE_LOGGER_SYSLOG_FACILITY`
 - `NODE_LOGGER_SYSLOG_APPNAME`
