@@ -55,9 +55,19 @@ describe('log level check: ', function() {
 });
 
 describe('initialization verification: ', function() {
-    
+
   it('logger initializes properly with valid level and logger plugin', function() {
-    var logger = require('../')('util', 'info');  
+    var logger = require('../')('util', 'info');
+    assert.equal(true, typeof logger === 'function');
+  });
+
+  it('logger initializes properly with valid uppercase level and logger plugin', function () {
+    var logger = require('../')('util', 'DEBUG');
+    assert.equal(true, typeof logger === 'function');
+  });
+
+  it('logger initializes properly with valid mixed-case level and logger plugin', function () {
+    var logger = require('../')('util', 'Critical');
     assert.equal(true, typeof logger === 'function');
   });
 
