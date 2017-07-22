@@ -42,15 +42,14 @@ logging experience.
 
 The metalogger module is a very lightweight bridge/wrapper for a number of
 popular logging implementations:
-[npmlog](https://github.com/isaacs/npmlog), 
-[loggly](https://www.loggly.com/), 
-[sumologic](https://www.sumologic.com/), 
+[npmlog](https://github.com/isaacs/npmlog),
+[loggly](https://www.loggly.com/),
+[sumologic](https://www.sumologic.com/),
 [syslog/ain2](https://npmjs.org/package/ain2),
-[log](https://github.com/visionmedia/log.js), 
-[util](http://nodejs.org/api/util.html). A node.js module that 
-uses the metalogger library can choose which logging implementation to use at runtime.
+[log](https://github.com/visionmedia/log.js),
+[util](http://nodejs.org/api/util.html).
 
-Usage of Metalogger is not limited to just standalone modules. Full-blown Node applications will also benefit from 
+Usage of Metalogger is not limited to just standalone modules. Full-blown Node applications will also benefit from
 using Metalogger to ensure that a switch-over to a different logging implementation won't be a hassle, if and when needed.
 
 ## Installation and Initialization
@@ -61,19 +60,16 @@ using Metalogger to ensure that a switch-over to a different logging implementat
 > npm install metalogger
 ```
 
-If you are planning to use syslogging via ain2 bridge, or loggly, you should
-install them manually, since they were made into optional dependencies:
+The `util` logging bridge relies on the built-in node `util`; for any other
+logging type, you must the underlying logger manually; metalogger does not
+require these unless you specify them.
 
 ```bash
-> npm install ain2
+> npm install --save ain2
 # or
-> npm install loggly
+> npm install --save loggly
+# etc
 ```
-
-In case of ain2 it was made optional because syslogging requires source
-compilation and would slow-down people who don't use it. In case of loggly it
-was done because there's an outdated dependency leading to a warning, [that is
-not being take care of](https://github.com/winstonjs/node-loggly/pull/65).
 
 #### Using with Winston:
 
@@ -103,12 +99,12 @@ Where the arguments of the initialization are:
 1. `plugin`: short name of the implemented logging plugin. Current implementations include:  ('ain2', 'util', 'npmlog', 'log', 'loggly', 'sumologic'). If you
    skip this value or pass `null`, it will default to the value of the environmental variable NODE_LOGGER_PLUGIN
 
-    Full current list can be checked, at runtime, by issuing: 
-    
+    Full current list can be checked, at runtime, by issuing:
+
     ```javascript
       log.loggers();
     ```
-    
+
 1. `level`: name of the default threshold logging level. If you
    skip this value or pass `null`, it will default to the value of the environmental variable NODE_LOGGER_LEVEL
 
@@ -116,11 +112,11 @@ Where the arguments of the initialization are:
 
     ```
       log.levels();
-    ```    
-    
-    As of this writing the list of the supported levels mirrors that of syslog (and log.js) and is as 
+    ```
+
+    As of this writing the list of the supported levels mirrors that of syslog (and log.js) and is as
     follows (in decreasing criticality):
-    
+
 - __emergency__  system is unusable
 - __alert__ action must be taken immediately
 - __critical__ the system is in critical condition
