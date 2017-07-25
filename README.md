@@ -42,12 +42,14 @@ logging experience.
 
 The metalogger module is a very lightweight bridge/wrapper for a number of
 popular logging implementations:
-[npmlog](https://github.com/isaacs/npmlog),
-[loggly](https://www.loggly.com/),
-[sumologic](https://www.sumologic.com/),
-[syslog/ain2](https://npmjs.org/package/ain2),
-[log](https://github.com/visionmedia/log.js),
-[util](http://nodejs.org/api/util.html).
+
+- [npmlog](https://github.com/isaacs/npmlog)
+- [loggly](https://www.loggly.com/)
+- [sumologic](https://www.sumologic.com/)
+- [syslog/ain2](https://npmjs.org/package/ain2)
+- [log](https://github.com/visionmedia/log.js)
+- [util](http://nodejs.org/api/util.html)
+- or any other logging facility supported by [winston](https://github.com/winstonjs/winston)
 
 Usage of Metalogger is not limited to just standalone modules. Full-blown Node applications will also benefit from
 using Metalogger to ensure that a switch-over to a different logging implementation won't be a hassle, if and when needed.
@@ -61,8 +63,8 @@ using Metalogger to ensure that a switch-over to a different logging implementat
 ```
 
 The `util` logging bridge relies on the built-in node `util`; for any other
-logging type, you must the underlying logger manually; metalogger does not
-require these unless you specify them.
+logging type, you must install the underlying logger manually. Metalogger
+does not require these unless you specify them.
 
 ```bash
 > npm install --save ain2
