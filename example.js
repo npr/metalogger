@@ -12,12 +12,6 @@ samplemod.foo('util');
 process.env.NODE_LOGGER_LEVEL_lib_examplemod_js = 'debug';
 samplemod.foo('util');
 
-console.log("Testing granularity for npmlog");
-process.env.NODE_LOGGER_LEVEL_lib_examplemod_js = null;
-samplemod.foo('npmlog');
-process.env.NODE_LOGGER_LEVEL_lib_examplemod_js = 'debug';
-samplemod.foo('npmlog');
-
 console.log("Testing granularity for log.js");
 process.env.NODE_LOGGER_LEVEL_lib_examplemod_js = null;
 samplemod.foo('log');
@@ -30,7 +24,7 @@ samplemod.foo('log');
 var obj = {
   "name"         : "Irakli"
 , "lastname"     : "Nadareishvili"
-, "organization" : "NPR" 
+, "organization" : "NPR"
 , "languages"    : ["Node.js", "Java", "Golang", "Python", "Ruby", "TCL"]
 , "tvshows"      : ["Burn Notice", "Top Gear", "Scrubs"]
 }
@@ -54,25 +48,6 @@ log.info('some caption', obj);
 // Complex syntax:
 log.error('caption', 'num: %d, title: %s', 125, "npr");
 
-//------ Npmlog.js
-console.log('------ USING NPMLOG');
-
-var log = require('./lib/metalogger')('npmlog', 'debug');
-var util = require('util');
-
-log.info('something info');
-log.error('something error');
-log.debug('something debug');
-log.notice('something notice');
-log.warning('something warning');
-log.alert('something alert');
-log.critical('something critical');
-
-log.info(obj);
-log.info('some caption', obj);
-
-// Complex syntax:
-log.error('caption', 'num: %d, title: %s', 125, "npr");
 
 //------ Log.js
 console.log('------ USING LOG.js');
@@ -122,7 +97,7 @@ log.debug('something debug');
 log.notice('something notice');
 log.warning('something warning');
 log.alert('something alert');
-log.critical('something critical'); 
+log.critical('something critical');
 
 // -- TEST DEFAULTS
 
