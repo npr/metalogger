@@ -1,7 +1,7 @@
 {
   "name": "metalogger",
   "description": "Node.js logging for grown-ups: a versatile logging wrapper that leaves you the choice, but removes the pain. Inspired by Apache Commons Logging",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "license": "MIT",
   "author": {
     "name": "Irakli Nadareishvili"
@@ -25,21 +25,22 @@
   "dependencies": {
     "callsite": "^1.0.0",
     "config": "^1.16.0",
-    "optional": "*",
+    "json-stringify-pretty-compact": "^1.0.4",
+    "optional": "0.1.4",
     "yaml": "^0.3.0"
   },
   "devDependencies": {
     "after": "0.8.2",
-    "chai": "^3.4.0",
+    "chai": "^4.1.2",
     "commander": "",
-    "coveralls": "^2.11.2",
-    "glob": "",
+    "coveralls": "^3.0.0",
     "istanbul": "^0.4.0",
     "jshint": "^2.8.0",
-    "mocha": "^3.4.1",
+    "log": "^1.4.0",
+    "mocha": "^4.0.1",
     "mocha-lcov-reporter": "^1.0.0",
-    "nock": "^9.0.13",
-    "should": "^11.2.1"
+    "should": "^13.2.0",
+    "winston": "^2.4.0"
   },
   "scripts": {
     "prepublish": "npm prune",
