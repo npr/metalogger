@@ -32,7 +32,7 @@ var obj = {
 //------ Winston
 console.log('------ USING Winston.js');
 
-log = require('./lib/metalogger')('winston', 'debug');
+var log = require('./lib/metalogger')('winston', 'debug');
 
 log.info('something info');
 log.error('something error');
