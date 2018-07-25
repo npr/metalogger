@@ -101,7 +101,7 @@ log.critical('something critical');
 
 // -- TEST DEFAULTS
 
-log = require('./lib/metalogger')(); //use sefaults or process.env values
+log = require('./lib/metalogger')(); //use defaults or process.env values
 
 log.info("THIS IS TESTING DEFAULTS");
 log.warning("WARNING: env process vars are being used!");
