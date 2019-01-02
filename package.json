@@ -1,7 +1,7 @@
 {
   "name": "metalogger",
   "description": "Node.js logging for grown-ups: a versatile logging wrapper that leaves you the choice, but removes the pain. Inspired by Apache Commons Logging",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "license": "MIT",
   "author": {
     "name": "Irakli Nadareishvili"
@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/publicmediaplatform/metalogger.git"
+    "url": "git://github.com/npr/metalogger.git"
   },
   "main": "./lib/metalogger.js",
   "dependencies": {
