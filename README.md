@@ -1,3 +1,5 @@
+DEPRECATED! NO LONGER MAINTAINED!
+
 [![Build Status](https://travis-ci.org/publicmediaplatform/metalogger.svg?branch=master)](https://travis-ci.org/publicmediaplatform/metalogger)
 [![NPM Version](https://img.shields.io/npm/v/metalogger.svg)](https://www.npmjs.org/package/metalogger)
 
